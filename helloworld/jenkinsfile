@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+    tools {
+        jdk "jdk8"
+        maven "maven3.6.0"
+        
+        }
+
+    stages {
+        stage('compile stage') {
+                           steps {
+                              
+                               sh 'mvn clean compile'
+                                                  }
+
+                           }
+
+                       
+        stage('test stage') {
+
+                         steps {
+                             
+                            sh 'mvn test'
+                                               
+
+                         }
+
+
+                     }
+         stage('install stage') {
+                            
+                            steps {
+                                
+                                
+                                 sh 'mvn install'
+                                                  
+
+                            }
+
+                        }
+         
+
+
+ 
+
+    }
+
+}
