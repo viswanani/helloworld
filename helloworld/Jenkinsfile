@@ -2,44 +2,42 @@ pipeline {
     agent any
     tools {
     //adding the tools
+        maven "Maven 3.6.0"
         jdk "jdk8"
-        maven "maven3.6.0"
         
-        
-        }
+    }
 
     stages {
         stage('compile stage') {
-                           steps {
-                              
-                               sh 'mvn clean '
-                                                  }
+            
+            steps {
+                sh 'mvn clean '
+                  
+             }
 
-                           }
+        }
 
                        
         stage('test stage') {
 
-                         steps {
+            steps {
                              
-                            sh 'mvn test'
+                sh 'mvn test'
                                                
 
-                         }
+            }
 
 
-                     }
-         stage('install stage') {
+        }
+        stage('install stage') {
                             
-                            steps {
-                                
-                                
-                                 sh 'mvn install'
+             steps {
+                  sh 'mvn install'
                                                   
 
-                            }
+              }
 
-                        }
+        }
          
 
 
